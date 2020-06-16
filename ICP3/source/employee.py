@@ -10,6 +10,9 @@ class Employee :
         Employee.empCount += 1
         Employee.salarySum += salary
 
+    def display_emp_count(self):
+        print("total number of employees", Employee.empCount)
+
     def averagesalary(self):
          average = float(Employee.salarySum)/float(Employee.empCount)
          print("The Average Salary of the Employees is: ", average)
@@ -17,18 +20,22 @@ class Employee :
     def displayEmployee(self):
         print("Name:", self.name, "Family:", self.family, "salary:", self.salary, "Department:", self.Department)
 
+    def demo_func(self):
+        print('calling member function of parent')
 
-class fullTime(Employee):
-     pass
+
+class Full_time_employee(Employee):
+    def __init__(self):
+        print('this is the subclass: Full time employee')
 
 
 if __name__=="__main__"  :
-    emp1 = Employee("Zara", "Taurs", 20000, "HR")
-    "This would create second object of Employee class"
-    emp2 = Employee("Manni", "William", 15000, "Developer")
-    emp3 = fullTime("David", "vicky", 40000, "testing")
+    emp1 = Employee('Nalluri', 'A', 6000, 'D1')
+    Employee('Pranathi', "B", 7000, "D2")
+    Employee('Krishna', 'C', 8000, 'D3')
     Employee.averagesalary(Employee)
-    emp1.displayEmployee()
-    emp2.displayEmployee()
-    emp3.displayEmployee()
-    print("Total Employees:", Employee.empCount)
+    e = Full_time_employee()
+    e.display_emp_count()
+    e.averagesalary()
+    e.demo_func()
+    emp1.demo_func()
